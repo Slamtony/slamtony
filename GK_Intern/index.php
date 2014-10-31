@@ -98,7 +98,7 @@ list-style-type:square;
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <strong>About</strong>
+                        <strong>About us</strong>
                     </h2>
                     <hr>
                     
