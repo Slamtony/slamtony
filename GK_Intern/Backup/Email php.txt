@@ -1,0 +1,41 @@
+<?php
+if(!empty($_POST['submit']) && isset($_POST)) {
+
+$fname = mysql_real_escape_string($_POST['f_name']);
+$lname = mysql_real_escape_string($_POST['l_name']);
+$age = mysql_real_escape_string($_POST['age']);
+$tech = mysql_real_escape_string($_POST['tech']);
+$uni = mysql_real_escape_string($_POST['univ']);
+$univ = mysql_real_escape_string($_POST['unive']);
+$phone = mysql_real_escape_string($_POST['phone']);
+$email = mysql_real_escape_string($_POST['email']);
+
+$ref = 'GK14-'.rand(1000, 9999).rand(0, 9);
+
+$messageApplicant = 'Hi '.$fname.' '.$lname.', <br><br>We have received your application for internship. Your reference number is '.$ref.'. Keep this number safe and we will contact you for more details.';
+$messageGeekulcha = 'New Applicant <br><br>Here is the info about the applicant<br><br> Name : '.$fname.'<br><br>Last Name: '.$lname.'<br><br>Age: '.$age.'<br><br>The University/institution :  '.$uni.$univ.'<br><br>The contact number of applicant:  '.$phone.'<br><br>Email address: '.$email.'<br><br>The ref no: '.$ref ;
+
+$headers = "From: " . strip_tags('slamtony10@live.com') . "\r\n";
+                                 $headers .= "Reply-To: ". strip_tags('slamtony10@live.com') . "\r\n";
+                                 $headers .= "MIME-Version: 1.0\r\n";
+                                $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";                                  
+
+				mail('slamtony10@live.com', 'New Application', $messageGeekulcha, $headers); 
+				mail($email, 'Geekulcha Intership', $messageApplicant, $headers);
+
+}
+else {
+
+?>
+<form>
+
+</form>
+<?php } ?>	
+
+==========================================
+$headers = "From: " . strip_tags('someone@geekulcha.com') . "\r\n";
+                                 $headers .= "Reply-To: ". strip_tags('admin@geekulcha.com') . "\r\n";
+                                 $headers .= "MIME-Version: 1.0\r\n";
+                            $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";                                  
+
+				mail($to, $subject, $message, $headers); 
